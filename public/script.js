@@ -31,6 +31,9 @@ window.onload = function () {
         })
         .then(res => res.json())
         .then((response) => {
+          if(response.resultcode !== 200){
+            document.querySelector("#aqiDe").innerHTML = "无该地区信息！"
+          }
           document.querySelector("#aqiNum").innerHTML = response.result[0].citynow.AQI
           document.querySelector("#aqiDe").innerHTML = response.result[0].citynow.quality
           if (response.result[0].citynow.AQI < 100) {
