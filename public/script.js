@@ -1,7 +1,7 @@
 window.onload = function () {
   var map = new BMap.Map("map");
   // 获取位置
-  fetch("/location/" + "ip?ak=34jgLcsvXQaduwh8CZ6nbiKdAZf8a5Og&coor=bd09ll")
+  fetch("/location/" + "ip?api-token")
     .then(
       res => res.json()
     )
@@ -25,7 +25,7 @@ window.onload = function () {
         }
       }
       var city = res.content.address.slice(0, 2);
-      var url = "/air/cityair?city=" + city + "&key=8dd678d627da67a6f317090a1bf8d4df";
+      var url = "/air/cityair?city=" + city + "&key=api-token";
       fetch(url, {
           method: "GET",
         })
@@ -47,7 +47,7 @@ window.onload = function () {
     })
 
 
-  var url = "/air/cityair?city=" + city + "&key=8dd678d627da67a6f317090a1bf8d4df";
+  var url = "/air/cityair?city=" + city + "&key=api-token";
   fetch(url, {
       method: "GET",
     })
@@ -63,7 +63,7 @@ window.onload = function () {
 
     geoc.getLocation(pt, function (rs) {
       var city = rs.addressComponents.city.slice(0, 2);
-      var url = "/air/cityair?city=" + city + "&key=8dd678d627da67a6f317090a1bf8d4df";
+      var url = "/air/cityair?city=" + city + "&key=api-token";
 
       fetch(url, {
           method: "GET",
